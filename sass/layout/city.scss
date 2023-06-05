@@ -1,0 +1,13 @@
+/*tous les points city qui sont à l'interieur de main */
+.city{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background-color: #f3f3f3;
+    text-align: center;
+    padding: 0.5rem;
+     i {
+       font-size: 1.3rem;
+    }
+}

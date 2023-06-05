@@ -1,0 +1,37 @@
+header {
+    font-family: "shrikhand", cursive;
+    text-align: center;
+    box-shadow: 0 0 0.5rem rbg(0 0 0 /25%);/*"0 0 0.5rem" : Les trois premiers chiffres contrôlent l'ombre horizontale, l'ombre verticale et le flou de l'ombre respectivement. Dans ce cas, il n'y a pas de décalage horizontal ou vertical de l'ombre, donc les valeurs sont "0". Le flou de l'ombre est de "0.5rem", soit une demi-rem (unité de mesure relative).
+    "rgb(0 0 0 / 25%)" : Il s'agit de la couleur de l'ombre. Dans cet exemple, la couleur de l'ombre est un noir pur (0 0 0) avec une opacité de 25% (25% correspondant à 0.25 en décimal).*/
+    padding: 0.3 rem;
+    margin: 0;
+    position: relative;/* permet de positionner un élément de manière relative par rapport à sa position normale dans le flux du document. Lorsqu'un élément a la valeur "position: relative", il reste dans le flux du document, mais on peut le déplacer en utilisant les propriétés "top", "right", "bottom" et "left" pour ajuster sa position par rapport à son emplacement initial.*/
+ }
+
+ /*mon animation sur le gros h1*/
+
+ header .scrollAnimation {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  header .scrollAnimation span {
+    display: inline-block;
+    animation: scrollAnimation 10s linear infinite;
+    animation-delay: calc(var(--delay) * var(--index));
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  
+  @keyframes scrollAnimation {
+    0% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  

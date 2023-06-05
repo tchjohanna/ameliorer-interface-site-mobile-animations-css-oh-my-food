@@ -1,0 +1,114 @@
+@use "../utils/variables.scss";
+@use "../utils/colors.scss";
+@use "../utils/linear-gradient";
+
+
+
+.menus {
+    background-color: #f6f6f6;
+    margin-bottom: 2rem;
+    
+    .menus__cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        
+        @media (max-width: variables.$breakpoint) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        
+        .new {      
+            position: relative;
+        }
+        
+        .new::before {
+            content: "Nouveau";
+            position: absolute;
+            height: 2rem;
+            width: 5rem;
+            background-color: colors.$color-tertiary;
+            color: darken(colors.$color-tertiary, 50%);
+            display: grid;
+            place-items: center;
+            right: 1rem;
+            top: 1rem;
+        }
+    }
+    /*mon animation sur NOUVEAU juste la première carte  */
+    .animate-card {
+        transition: transform 0.3s ease-in-out;
+      
+        &:hover {
+          animation: shake 0.5s ease-in-out infinite;
+        }
+      
+        @keyframes shake {
+          0% {
+            transform: translateX(0);
+          }
+          25% {
+            transform: translateX(-5px);
+          }
+          50% {
+            transform: translateX(5px);
+          }
+          75% {
+            transform: translateX(-5px);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+      }
+      
+      
+      
+    .card {
+        &__image {
+            border-radius: 1rem 1rem 0 0;
+            height: 15rem;
+            background-size: cover;
+        }
+        
+        @for $i from 1 through 4 {
+            &__image-#{$i} {
+                background-image: url("../../assets/menu-#{$i}.jpg");
+            }
+        }
+        
+        &__description {
+            position: relative;
+            background-color: white;
+            border-radius: 0 0 1rem 1rem;
+            
+            h3,
+            p{
+                padding-top: 0.3rem;
+            }
+            i {
+                font-size: 2rem;
+                position: absolute;
+                right: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .fas{
+                color: transparent;
+                background-image: linear-gradient(rgb(233, 157, 170), rgb(228, 103, 213) );
+                background-clip: text;
+                -webkit-background-clip: text;
+                opacity: 0;
+                transition: all 200ms ease ease-in-out;
+                @include linear-gradient.gradient(1);
+                
+
+            }
+            &:hover .fas{
+                opacity: 1;
+                transform: translateY(-50%) scale(1.2);
+            }
+
+            }
+        }
+    }
+
