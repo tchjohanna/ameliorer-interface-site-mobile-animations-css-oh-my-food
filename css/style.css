@@ -388,5 +388,8 @@ footer .proposer {
     order: 4;
   }
 }
+img {
+  max-width: 100%;
+}
 
 /*# sourceMappingURL=style.css.map */
