@@ -392,4 +392,31 @@ img {
   max-width: 100%;
 }
 
+main h2 {
+  font-family: "shrikhand", "sans-serif";
+}
+
+.fas i {
+  font-size: 2rem;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.fas {
+  color: transparent;
+  background-image: linear-gradient(rgb(233, 157, 170), rgb(228, 103, 213));
+  background-clip: text;
+  -webkit-background-clip: text;
+  opacity: 0;
+  transition: all 200ms ease ease-in-out;
+  background-image: linear-gradient(to top, rgb(147, 86, 220), rgb(255, 121, 218));
+}
+
+.fas:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.2);
+}
+
 /*# sourceMappingURL=style.css.map */
