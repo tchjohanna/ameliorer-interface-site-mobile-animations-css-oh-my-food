@@ -8,30 +8,27 @@ header {
     position: relative;/* permet de positionner un élément de manière relative par rapport à sa position normale dans le flux du document. Lorsqu'un élément a la valeur "position: relative", il reste dans le flux du document, mais on peut le déplacer en utilisant les propriétés "top", "right", "bottom" et "left" pour ajuster sa position par rapport à son emplacement initial.*/
  }
 
- /*mon animation sur le gros h1*/
+ /*mon animation*/
+ header h1 {
+  font-family: "Shrikhand", cursive;
+  font-size: 3rem;
+  animation: wiggleAnimation 2s linear 2;
+}
 
- header .scrollAnimation {
-    overflow: hidden;
-    white-space: nowrap;
+@keyframes wiggleAnimation {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  header .scrollAnimation span {
-    display: inline-block;
-    animation: scrollAnimation 10s linear infinite;
-    animation-delay: calc(var(--delay) * var(--index));
-    transform: translateX(-100%);
-    opacity: 0;
+  25% {
+    transform: rotate(10deg);
   }
-  
-  @keyframes scrollAnimation {
-    0% {
-      opacity: 0;
-    }
-    40% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(0);
-    }
+  50% {
+    transform: rotate(0deg);
   }
-  
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

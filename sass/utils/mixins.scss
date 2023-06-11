@@ -1,0 +1,19 @@
+@mixin gradient($opacity: 0.9){
+    background-image: linear-gradient(
+        to top, 
+        rgba(147, 86, 220, $opacity),
+        rgba(255, 121, 218, $opacity)
+    );
+
+
+}
+
+@mixin base-shadow{
+    box-shadow: 15px 19px 34px -15px rgba(0,0,0,0.75);
+
+}
+
+@mixin transform-zoom {
+    transform: scale(1.07);
+
+}

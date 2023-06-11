@@ -1,34 +1,33 @@
-@use "../utils/box-shadow.scss";
-@use "../utils/linear-gradient";
+@use "../utils/colors.scss";
+@use"../utils/mixins.scss";
 
-.explorer{
+.explorer {
     text-align: center;
-}
 
-h2{
-    font-size: 2rem;
-}
+    h2 {
+        font-size: 2rem;
+    }
 
-p{
-    font-size: 1rem;
-}
+    p {
+        font-size: 1rem;
+    }
 
-button{
-    color: rgb(255, 255, 255);
-    font-weight: 300;
-    font-size: 1.5rem;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 2rem;
-  //  box-shadow: 15px 19px 34px -15px rgba(0,0,0,0.75);
-    background-image: linear-gradient(to top, #9356DC, #FF79DA);
-    margin-top: 1rem;
-    transition: transform 200ms;/*en plaçant la propriété transition dans la règle & button, vous assurez une transition fluide à la fois lors du survol du bouton et lors du retour à l'état initial.*/
-    @include box-shadow.base-shadow;
-    @include linear-gradient.gradient(0.9);
-}
+    button {
+        color: rgb(255, 255, 255);
+        font-weight: 300;
+        font-size: 1.5rem;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 2rem;
+        background-image: linear-gradient(to top, #9356DC, #FF79DA);
+        margin-top: 1rem;
+        transition: transform 200ms; /* By placing the transition property in the & button rule, you ensure a smooth transition both when hovering over the button and when returning to the initial state. */
+        @include mixins.base-shadow;
+        @include mixins.gradient(0.9);
 
-button:hover{
-    transform: scale(1.2);
-    opacity: 0.9;
+        &:hover {
+            transform: scale(1.2);
+            opacity: 0.9;
+        }
+    }
 }

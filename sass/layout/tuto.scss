@@ -1,5 +1,5 @@
-@use "../utils/zoom.scss";
-@use "../utils/box-shadow";
+@use "../utils/mixins.scss";
+
 @use "../utils/variables";
 @use "../utils/colors";
 
@@ -38,9 +38,9 @@ $tuto-bullet-height: 1rem;
         padding: 1.5rem 2rem;
         flex-grow: 1;
         border-radius: 1rem;
-        @include box-shadow.base-shadow;
+        @include mixins.base-shadow;
         &:hover{
-            @include zoom.transform-zoom;
+            @include mixins.transform-zoom;
         }
         & i.fas{
             margin-right: 1rem;

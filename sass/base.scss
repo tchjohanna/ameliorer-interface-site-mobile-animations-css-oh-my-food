@@ -7,46 +7,6 @@
 la taille disponible. */
 }
 
-body {
-  margin: 0px;
-  font-family: "roboto", sans-serif;
-}
-
-main{
-  padding: 0 7rem;
-  @media(max-width:1000px) {
-    padding: 0 1rem;
-  }
-}
-
-main {
-  position: relative;
-  overflow: hidden;
-}
-/*MON ANIMATION EN ARRIERE PLAN QUI BOUGE SUR TOUTE LA PARTIE MAIN */
-main::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(../assets/animations.png);
-  background-repeat: repeat;
-  opacity: 0.1;
-  pointer-events: none;
-  animation: backgroundMovement 20s linear infinite;
-}
-
-@keyframes backgroundMovement {
-  from {
-      background-position: 0 0;
-  }
-  to {
-      background-position: 100% 100%;
-  }
-}
-
 
 /*MON ANIMATION SUR LES H2 FONCTIONNEMENTS ET RESTAURANTS */
 @keyframes bounce {
@@ -62,7 +22,7 @@ main::after {
 }
 
 h2.rebond {
-  animation: bounce 10s infinite;
+  animation: bounce 3s linear 1;
 }
 
 

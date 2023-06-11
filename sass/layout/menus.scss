@@ -1,6 +1,6 @@
 @use "../utils/variables.scss";
 @use "../utils/colors.scss";
-@use "../utils/linear-gradient";
+@use "../utils/mixins.scss";
 
 
 
@@ -34,12 +34,12 @@
             top: 1rem;
         }
     }
-    /*mon animation sur NOUVEAU juste la première carte  */
+    /*mon animation sur NOUVEAU   */
     .animate-card {
         transition: transform 0.3s ease-in-out;
       
         &:hover {
-          animation: shake 0.5s ease-in-out infinite;
+          animation: shake 0.5s ease-in-out infinite ;
         }
       
         @keyframes shake {
@@ -99,9 +99,7 @@
                 -webkit-background-clip: text;
                 opacity: 0;
                 transition: all 200ms ease ease-in-out;
-                @include linear-gradient.gradient(1);
-                
-
+                @include mixins.gradient(1);
             }
             &:hover .fas{
                 opacity: 1;

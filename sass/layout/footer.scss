@@ -1,103 +1,97 @@
 @use "./../utils/colors.scss";
-
-
-
-
-
-
-
-/*mon animation perso*/
-@keyframes blink {
-    0%, 50% {
-      opacity: 1;
-      color: white;
+/* Animation sur les icônes du footer */
+.footer-icons {
+    animation: spinAnimation 8s linear forwards;
+  }
+  
+  @keyframes spinAnimation {
+    from {
+      transform: rotate(0deg);
     }
-    51%, 100% {
-      opacity: 0;
-      color: black;
+    to {
+      transform: rotate(360deg);
     }
   }
   
+  /* Styles du footer */
   footer .fas {
-    animation: blink 1s infinite;
+    opacity: 1;
+    color: white;
+    padding-right: 5px;
   }
   
-   
-
   footer {
     padding-top: 40px;
     padding-right: 40px;
-    background-color: colors.$darkgrey; 
+    background-color: #333333;
     display: flex;
     flex-direction: row-reverse;
     gap: 20px;
     color: white;
-}
-
-footer p {
+  }
+  
+  footer p {
     padding-right: 60px;
     font-size: 14px;
-}
-
-footer h2 {
-    order: -1; /* Pour placer "OhMyFood" toujours en premier */
+  }
+  
+  footer h2 {
+    order: -1;
     padding-top: 1px;
-    font-family: "Shrikhand", "sans-serif";
-        font-weight: 500;
-}
-
-footer .contact {
+    font-family: "Shrikhand", sans-serif;
+    font-weight: 500;
+  }
+  
+  footer .contact {
     order: 1;
-}
-
-footer .mentions {
+  }
+  
+  footer .mentions {
     order: 2;
-}
-
-footer .partenaire {
+  }
+  
+  footer .partenaire {
     order: 3;
-}
-
-footer .proposer {
+  }
+  
+  footer .proposer {
     order: 4;
-}
-
-@media only screen and (max-width: 800px) {
+  }
+  
+  @media only screen and (max-width: 800px) {
     footer {
-        padding: 1rem 2rem;
-        flex-direction: column;
-
-        h2 {
-            padding: 1rem 0;
-        }
-
-        p {
-            padding: 0.2rem;
-        }
-
-        .fa, .fas {
-            font-weight: 900;
-            padding-right: 5px;
-        }
-        .proposer {
-            order: 1;
-        }
-
-        .partenaire {
-            order: 2;
-        }
-
-        .mentions {
-            order: 3;
-        }
-
-        .contact {
-            order: 4;
-        }
+      padding: 1rem 2rem;
+      flex-direction: column;
     }
-}
-
-
-
-
-
+  
+    footer h2 {
+      padding: 1rem 0;
+    }
+  
+    footer p {
+      padding: 0.2rem;
+    }
+  
+    .fa,
+    .fas {
+      font-weight: 900;
+      padding-right: 5px;
+    }
+  
+    .proposer {
+      order: 1;
+    }
+  
+    .partenaire {
+      order: 2;
+    }
+  
+    .mentions {
+      order: 3;
+    }
+  
+    .contact {
+      order: 4;
+    }
+  }
+  

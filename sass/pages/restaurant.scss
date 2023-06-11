@@ -1,34 +1,43 @@
-@use "../utils/variables.scss";
+@use "../utils/mixins.scss";
 @use "../utils/colors.scss";
-@use "../utils/linear-gradient";
 
-img{
-    max-width: 100%;
+.banner img {
+    display: block;
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+    object-position: center bottom;
 }
 
-main h2{
-    font-family: "shrikhand", "sans-serif";
-}
+.resto__main {
+    margin-top: -2rem;
 
-.fas i {
-    font-size: 2rem;
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-}
-.fas{
-    color: transparent;
-    background-image: linear-gradient(rgb(233, 157, 170), rgb(228, 103, 213) );
-    background-clip: text;
-    -webkit-background-clip: text;
-    opacity: 0;
-    transition: all 200ms ease ease-in-out;
-    @include linear-gradient.gradient(1);
-    
+    h2 {
+        padding: 2rem 1rem;
+        font-family: "shrikhand", "sans-serif";
+        border-radius: 2rem 2rem 0 0;
 
-}
-.fas:hover  {
-    opacity: 1;
-    transform: translateY(-50%) scale(1.2);
-}
+        i {
+            font-size: 2rem;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .fas{
+            color: transparent;
+            background-image: linear-gradient(rgb(233, 157, 170), rgb(228, 103, 213) );
+            background-clip: text;
+            -webkit-background-clip: text;
+            opacity: 0;
+            transition: all 200ms ease ease-in-out;
+            @include mixins.gradient(1);
+        }
+
+        &:hover .fas{
+            opacity: 1;
+            transform: translateY(-50%) scale(1.2);
+        }
+
+        }
+    }
