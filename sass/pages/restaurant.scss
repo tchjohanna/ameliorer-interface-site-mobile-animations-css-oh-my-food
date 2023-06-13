@@ -1,43 +1,35 @@
 @use "../utils/mixins.scss";
 @use "../utils/colors.scss";
 
-.banner img {
+/*.banner img {
     display: block;
     width: 100%;
     height: 70vh;
     object-fit: cover;
     object-position: center bottom;
+}*/
+
+main h2 {
+    @include mixins.heart-animated;
 }
-
-.resto__main {
-    margin-top: -2rem;
-
-    h2 {
-        padding: 2rem 1rem;
+        
         font-family: "shrikhand", "sans-serif";
-        border-radius: 2rem 2rem 0 0;
+        &::before{
+            @include mixins.heart;   
+           }
+           &::after{
+             @include mixins.heart($opacity: 0, $font-weight: 900, $color: transparent);
+             @include mixins.gradient(1);
+             //opacity: 0;
+             //color: transparent;
+             //font-weight: 900;
+           }
+           &:hover::after{
+             opacity: 1;
+             transform: translateY(-50%) scale(1.1);
+           }
 
-        i {
-            font-size: 2rem;
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        .fas{
-            color: transparent;
-            background-image: linear-gradient(rgb(233, 157, 170), rgb(228, 103, 213) );
-            background-clip: text;
-            -webkit-background-clip: text;
-            opacity: 0;
-            transition: all 200ms ease ease-in-out;
-            @include mixins.gradient(1);
-        }
-
-        &:hover .fas{
-            opacity: 1;
-            transform: translateY(-50%) scale(1.2);
-        }
+       
 
         }
     }

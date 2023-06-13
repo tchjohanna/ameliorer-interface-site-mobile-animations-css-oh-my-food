@@ -18,23 +18,40 @@
 
 }
 
-@mixin heart {
+@mixin heart($opacity : 1, $font-weight : 400, $color : inherit) {
     display: inline-block;
     font-style: normal;
     font-variant: normal;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     font-family: "Font Awesome 5 Free";
-    font-weight: 400;
+    font-weight: $font-weight;
     content: "\f004";
     font-size: 2rem;
     position: absolute;
     right: 1rem;
     top: 50%;
     transform: translateY(-50%);
-    color: inherit;
+    color: $color;
     background-clip: text ;
     -webkit-background-clip: text;
-    opacity: 1;
+    opacity: $opacity;
     transition: all 200ms ease-in-out;
+}
+
+@mixin heart-animated{
+    &::before{
+        @include heart;   
+       }
+       &::after{
+         @include heart($opacity: 0, $font-weight: 900, $color: transparent);
+         @include gradient(1);
+         //opacity: 0;
+         //color: transparent;
+         //font-weight: 900;
+       }
+       &:hover::after{
+         opacity: 1;
+         transform: translateY(-50%) scale(1.1);
+       }
 }
