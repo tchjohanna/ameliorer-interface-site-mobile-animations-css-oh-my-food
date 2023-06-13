@@ -80,31 +80,25 @@
             position: relative;
             background-color: white;
             border-radius: 0 0 1rem 1rem;
-            
+            &::before{
+             @include mixins.heart;   
+            }
+            &::after{
+              @include mixins.heart;
+              @include mixins.gradient(1);
+              opacity: 0;
+              color: transparent;
+              font-weight: 900;
+            }
+            &:hover::after{
+              opacity: 1;
+              transform: translateY(-50%) scale(1.1);
+            }
             h3,
             p{
                 padding-top: 0.3rem;
             }
-            i {
-                font-size: 2rem;
-                position: absolute;
-                right: 1rem;
-                top: 50%;
-                transform: translateY(-50%);
-            }
-            .fas{
-                color: transparent;
-                background-image: linear-gradient(rgb(233, 157, 170), rgb(228, 103, 213) );
-                background-clip: text;
-                -webkit-background-clip: text;
-                opacity: 0;
-                transition: all 200ms ease ease-in-out;
-                @include mixins.gradient(1);
-            }
-            &:hover .fas{
-                opacity: 1;
-                transform: translateY(-50%) scale(1.2);
-            }
+          
 
             }
         }

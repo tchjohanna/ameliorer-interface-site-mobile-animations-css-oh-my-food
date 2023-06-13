@@ -240,29 +240,57 @@ header h1 {
   background-color: white;
   border-radius: 0 0 1rem 1rem;
 }
-.menus .card__description h3,
-.menus .card__description p {
-  padding-top: 0.3rem;
-}
-.menus .card__description i {
+.menus .card__description::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  content: "\f004";
   font-size: 2rem;
   position: absolute;
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
-}
-.menus .card__description .fas {
-  color: transparent;
-  background-image: linear-gradient(rgb(233, 157, 170), rgb(228, 103, 213));
+  color: inherit;
   background-clip: text;
   -webkit-background-clip: text;
-  opacity: 0;
-  transition: all 200ms ease ease-in-out;
-  background-image: linear-gradient(to top, rgb(147, 86, 220), rgb(255, 121, 218));
-}
-.menus .card__description:hover .fas {
   opacity: 1;
-  transform: translateY(-50%) scale(1.2);
+  transition: all 200ms ease-in-out;
+}
+.menus .card__description::after {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  content: "\f004";
+  font-size: 2rem;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: inherit;
+  background-clip: text;
+  -webkit-background-clip: text;
+  opacity: 1;
+  transition: all 200ms ease-in-out;
+  background-image: linear-gradient(to top, rgb(147, 86, 220), rgb(255, 121, 218));
+  opacity: 0;
+  color: transparent;
+  font-weight: 900;
+}
+.menus .card__description:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+.menus .card__description h3,
+.menus .card__description p {
+  padding-top: 0.3rem;
 }
 
 /* Animation sur les icônes du footer */
