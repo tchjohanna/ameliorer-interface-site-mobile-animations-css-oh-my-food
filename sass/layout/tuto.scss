@@ -38,7 +38,7 @@ $tuto-bullet-height: 1rem;
         padding: 1.5rem 2rem;
         flex-grow: 1;
         border-radius: 1rem;
-        @include mixins.base-shadow;
+        @include mixins.box-shadow;
         &:hover{
             @include mixins.transform-zoom;
         }

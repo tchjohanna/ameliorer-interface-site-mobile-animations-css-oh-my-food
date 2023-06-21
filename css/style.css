@@ -1,18 +1,633 @@
-/* Error: expected "{".
- *    ,
- * 16 |         font-family: "shrikhand", "sans-serif";
- *    |                                               ^
- *    '
- *   sass/pages/restaurant.scss 16:47  @use
- *   style.scss 8:1                    root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: expected "{".\a    \2577 \a 16 \2502          font-family: "shrikhand", "sans-serif";\a    \2502                                                ^\a    \2575 \a   sass/pages/restaurant.scss 16:47  @use\a   style.scss 8:1                    root stylesheet';
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Shrikhand&display=swap"); /*
+.container_loader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background: white;
+  z-index: 0;
+  visibility: hidden;
+  animation: loader 3s linear;
 }
+
+
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #8b77f1;
+  border-top-color: #f002c0;
+  border-radius: 50%;
+  animation: spinner 1s infinite linear;
+
+}
+
+@keyframes spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes loader {
+  0% {
+    z-index: 10;
+    visibility: visible;
+  }
+
+
+
+}
+
+*/
+.container_loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background: white;
+  z-index: 0;
+  visibility: hidden;
+  animation: loader 3s linear;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #8b77f1;
+  border-top-color: #f002c0;
+  border-radius: 50%;
+  animation: spinner 1s infinite linear;
+  position: relative;
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 15px;
+  background: #f002c0;
+  border-radius: 50%;
+}
+
+.loader:after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 15px;
+  background: #f002c0;
+  border-radius: 50%;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loader {
+  0% {
+    z-index: 10;
+    visibility: visible;
+  }
+}
+*, ::after, ::before {
+  box-sizing: border-box; /* le contenu sera ajusté automatiquement en fonction de
+la taille disponible. */
+}
+
+/*MON ANIMATION SUR LES H2 FONCTIONNEMENTS ET RESTAURANTS */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  10%, 40% {
+    transform: translateY(-50px);
+  }
+  30%, 60% {
+    transform: translateY(-25px);
+  }
+}
+h2.rebond {
+  animation: bounce 3s linear 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 2rem 0;
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  .city h2 {
+    font-size: 1rem;
+  }
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h3, p {
+  margin: 0;
+}
+
+header {
+  font-family: "shrikhand", cursive;
+  text-align: center;
+  box-shadow: 0 0 0.5rem rbg(0 0 0/25%); /*"0 0 0.5rem" : Les trois premiers chiffres contrôlent l'ombre horizontale, l'ombre verticale et le flou de l'ombre respectivement. Dans ce cas, il n'y a pas de décalage horizontal ou vertical de l'ombre, donc les valeurs sont "0". Le flou de l'ombre est de "0.5rem", soit une demi-rem (unité de mesure relative).
+"rgb(0 0 0 / 25%)" : Il s'agit de la couleur de l'ombre. Dans cet exemple, la couleur de l'ombre est un noir pur (0 0 0) avec une opacité de 25% (25% correspondant à 0.25 en décimal).*/
+  padding: 0.3 rem;
+  margin: 0;
+  position: relative; /* permet de positionner un élément de manière relative par rapport à sa position normale dans le flux du document. Lorsqu'un élément a la valeur "position: relative", il reste dans le flux du document, mais on peut le déplacer en utilisant les propriétés "top", "right", "bottom" et "left" pour ajuster sa position par rapport à son emplacement initial.*/
+}
+
+/*mon animation*/
+header h1 {
+  font-family: "Shrikhand", cursive;
+  font-size: 3rem;
+  animation: wiggleAnimation 2s linear 2;
+}
+
+@keyframes wiggleAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+/*tous les points city qui sont à l'interieur de main */
+.city {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: #f3f3f3;
+  text-align: center;
+  padding: 0.5rem;
+}
+.city i {
+  font-size: 1.3rem;
+}
+
+/* var(--lightgrey);*/
+/* var(--purple);*/
+/* var(--color-tertiary);*/
+/* var(--darkgrey);*/
+/* var(--lightergrey);*/
+.explorer {
+  text-align: center;
+}
+.explorer h2 {
+  font-size: 2rem;
+}
+.explorer p {
+  font-size: 1rem;
+}
+.explorer button {
+  color: rgb(255, 255, 255);
+  font-weight: 300;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 2rem;
+  background-image: linear-gradient(to top, #9356DC, #FF79DA);
+  margin-top: 1rem;
+  transition: transform 200ms; /* By placing the transition property in the & button rule, you ensure a smooth transition both when hovering over the button and when returning to the initial state. */
+  box-shadow: 2px 1px 8px -3px rgba(0, 0, 0, 0.75);
+  background-image: linear-gradient(to top, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
+}
+.explorer button:hover {
+  transform: scale(1.2);
+  opacity: 0.9;
+}
+
+.tuto {
+  counter-reset: steps;
+}
+.tuto ol {
+  display: flex;
+  gap: 2rem;
+}
+@media (max-width: 1000px) {
+  .tuto ol {
+    flex-direction: column;
+  }
+}
+.tuto li {
+  position: relative;
+  list-style-type: none;
+  background-color: #f6f6f6;
+  padding: 1.5rem 2rem;
+  flex-grow: 1;
+  border-radius: 1rem;
+  box-shadow: 2px 1px 8px -3px rgba(0, 0, 0, 0.75);
+}
+.tuto li::before {
+  content: counter(steps);
+  counter-increment: steps;
+  color: #ffffff;
+  background-color: #9356DC;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: -1rem;
+  transform: translateY(-50%);
+}
+.tuto li:hover {
+  transform: scale(1.07);
+}
+.tuto li i.fas {
+  margin-right: 1rem;
+  color: #7e7e7e;
+  font-size: 1.5rem;
+}
+
+#homepage .menus {
+  background-color: #f6f6f6;
+  margin-bottom: 2rem;
+  /*mon animation sur NOUVEAU   */
+}
+#homepage .menus .menus__cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+@media (max-width: 1000px) {
+  #homepage .menus .menus__cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+#homepage .menus .menus__cards .new {
+  position: relative;
+}
+#homepage .menus .menus__cards .new::before {
+  content: "Nouveau";
+  position: absolute;
+  height: 2rem;
+  width: 5rem;
+  background-color: #99E2D0;
+  color: #1b6150;
+  display: grid;
+  place-items: center;
+  right: 1rem;
+  top: 1rem;
+}
+#homepage .menus .animate-card {
+  transition: transform 0.3s ease-in-out;
+}
+#homepage .menus .animate-card:hover {
+  animation: shake 0.5s ease-in-out infinite;
+}
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+#homepage .menus .card__image {
+  border-radius: 1rem 1rem 0 0;
+  height: 15rem;
+  background-size: cover;
+}
+#homepage .menus .card__image-1 {
+  background-image: url("../../assets/menu-1.jpg");
+}
+#homepage .menus .card__image-2 {
+  background-image: url("../../assets/menu-2.jpg");
+}
+#homepage .menus .card__image-3 {
+  background-image: url("../../assets/menu-3.jpg");
+}
+#homepage .menus .card__image-4 {
+  background-image: url("../../assets/menu-4.jpg");
+}
+#homepage .menus .card__description {
+  position: relative;
+  background-color: white;
+  border-radius: 0 0 1rem 1rem;
+}
+#homepage .menus .card__description::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  content: "\f004";
+  font-size: 2rem;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: inherit;
+  background-clip: text;
+  -webkit-background-clip: text;
+  opacity: 1;
+  transition: all 200ms ease-in-out;
+}
+#homepage .menus .card__description::after {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f004";
+  font-size: 2rem;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  opacity: 0;
+  transition: all 200ms ease-in-out;
+  background-image: linear-gradient(to top, rgb(147, 86, 220), rgb(255, 121, 218));
+}
+#homepage .menus .card__description:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+#homepage .menus .card__description h3,
+#homepage .menus .card__description p {
+  padding-top: 0.3rem;
+}
+
+/* Animation sur les icônes du footer */
+.footer-icons {
+  animation: spinAnimation 8s linear forwards;
+}
+
+@keyframes spinAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Styles du footer */
+footer .fas {
+  opacity: 1;
+  color: white;
+  padding-right: 5px;
+}
+
+footer {
+  padding-top: 40px;
+  padding-right: 40px;
+  background-color: #333333;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 20px;
+  color: white;
+}
+
+footer p {
+  padding-right: 60px;
+  font-size: 14px;
+}
+
+footer h2 {
+  order: -1;
+  padding-top: 1px;
+  font-family: "Shrikhand", sans-serif;
+  font-weight: 500;
+}
+
+footer .contact {
+  order: 1;
+}
+
+footer .mentions {
+  order: 2;
+}
+
+footer .partenaire {
+  order: 3;
+}
+
+footer .proposer {
+  order: 4;
+}
+
+@media only screen and (max-width: 800px) {
+  footer {
+    padding: 1rem 2rem;
+    flex-direction: column;
+  }
+  footer h2 {
+    padding: 1rem 0;
+  }
+  footer p {
+    padding: 0.2rem;
+  }
+  .fa,
+  .fas {
+    font-weight: 900;
+    padding-right: 5px;
+  }
+  .proposer {
+    order: 1;
+  }
+  .partenaire {
+    order: 2;
+  }
+  .mentions {
+    order: 3;
+  }
+  .contact {
+    order: 4;
+  }
+}
+body {
+  background-color: #F6F6F6;
+}
+
+#page-resto .banner img {
+  display: block;
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
+  object-position: center bottom;
+}
+#page-resto .resto__title {
+  margin-top: -2rem;
+}
+#page-resto .resto__title h2 {
+  font-family: "Shrikhand", "cursive";
+  padding: 2rem 1rem;
+  position: relative;
+  background-color: white;
+  border-radius: 0 0 1rem 1rem;
+  border-radius: 2rem 2rem 0 0;
+  background-color: #F6F6F6;
+}
+#page-resto .resto__title h2::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  content: "\f004";
+  font-size: 2rem;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: inherit;
+  background-clip: text;
+  -webkit-background-clip: text;
+  opacity: 1;
+  transition: all 200ms ease-in-out;
+}
+#page-resto .resto__title h2::after {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f004";
+  font-size: 2rem;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  opacity: 0;
+  transition: all 200ms ease-in-out;
+  background-image: linear-gradient(to top, rgb(147, 86, 220), rgb(255, 121, 218));
+}
+#page-resto .resto__title h2:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+#page-resto .resto__main {
+  padding: 0 1rem;
+}
+#page-resto .menus {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 1000px) {
+  #page-resto .menus {
+    grid-template-columns: 1fr;
+  }
+}
+#page-resto .menus .menus__category {
+  overflow: hidden;
+}
+#page-resto .menus .menus__category .menu-item {
+  display: flex;
+  background-color: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 1rem;
+  box-shadow: 2px 1px 8px -3px rgba(0, 0, 0, 0.75);
+}
+#page-resto .menus .menus__category .menu-item .menu-item__price {
+  margin-left: auto;
+  font-weight: 900;
+  padding: 1rem;
+  display: flex;
+  align-items: flex-end;
+}
+#page-resto .menus .menus__category .menu-item .menu-item__description {
+  padding: 1rem;
+  overflow: hidden;
+}
+#page-resto .menus .menus__category .menu-item .menu-item__description h4,
+#page-resto .menus .menus__category .menu-item .menu-item__description p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#page-resto .menus .menus__category .menu-item .menu-item__check {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 0 1rem 1rem 0;
+  background-color: #99E2D0;
+  margin-right: -4rem;
+  width: 4rem;
+  transition: margin-right 0.5s;
+}
+#page-resto .menus .menus__category .menu-item .menu-item__check i {
+  display: grid;
+  place-items: center;
+  background: white;
+  aspect-ratio: 1;
+  width: 2rem;
+  border-radius: 1rem;
+  color: #99E2D0;
+}
+#page-resto .menus .menus__category .menu-item:hover .menu-item__check {
+  display: grid;
+  margin-right: 0;
+}
+#page-resto .menus .menus__category .menu-item:hover i {
+  animation: quarterspin 0.5s ease-in-out;
+}
+@keyframes quarterspin {
+  0% {
+    transform: rotate(-270deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

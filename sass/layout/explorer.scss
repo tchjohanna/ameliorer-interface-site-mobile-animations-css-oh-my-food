@@ -22,7 +22,7 @@
         background-image: linear-gradient(to top, #9356DC, #FF79DA);
         margin-top: 1rem;
         transition: transform 200ms; /* By placing the transition property in the & button rule, you ensure a smooth transition both when hovering over the button and when returning to the initial state. */
-        @include mixins.base-shadow;
+        @include mixins.box-shadow;
         @include mixins.gradient(0.9);
 
         &:hover {

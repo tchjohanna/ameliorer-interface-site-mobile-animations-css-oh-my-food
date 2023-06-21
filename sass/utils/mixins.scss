@@ -8,8 +8,8 @@
 
 }
 
-@mixin base-shadow{
-    box-shadow: 15px 19px 34px -15px rgba(0,0,0,0.75);
+@mixin box-shadow{
+    box-shadow: 2px 1px 8px -3px rgba(0,0,0,0.75);
 
 }
 
@@ -40,18 +40,19 @@
 }
 
 @mixin heart-animated{
+    position: relative;
+    background-color: white;
+    border-radius : 0 0 1rem 1rem;
     &::before{
         @include heart;   
-       }
-       &::after{
+    }
+    &::after{
          @include heart($opacity: 0, $font-weight: 900, $color: transparent);
          @include gradient(1);
-         //opacity: 0;
-         //color: transparent;
-         //font-weight: 900;
-       }
-       &:hover::after{
+         
+    }
+    &:hover::after{
          opacity: 1;
          transform: translateY(-50%) scale(1.1);
-       }
+    }
 }

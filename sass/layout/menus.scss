@@ -2,8 +2,7 @@
 @use "../utils/colors.scss";
 @use "../utils/mixins.scss";
 
-
-
+#homepage{
 .menus {
     background-color: #f6f6f6;
     margin-bottom: 2rem;
@@ -12,15 +11,12 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
-        
         @media (max-width: variables.$breakpoint) {
             grid-template-columns: repeat(1, 1fr);
         }
-        
         .new {      
             position: relative;
         }
-        
         .new::before {
             content: "Nouveau";
             position: absolute;
@@ -34,35 +30,34 @@
             top: 1rem;
         }
     }
+    
     /*mon animation sur NOUVEAU   */
     .animate-card {
         transition: transform 0.3s ease-in-out;
       
         &:hover {
-          animation: shake 0.5s ease-in-out infinite ;
+            animation: shake 0.5s ease-in-out infinite;
         }
       
         @keyframes shake {
-          0% {
-            transform: translateX(0);
-          }
-          25% {
-            transform: translateX(-5px);
-          }
-          50% {
-            transform: translateX(5px);
-          }
-          75% {
-            transform: translateX(-5px);
-          }
-          100% {
-            transform: translateX(0);
-          }
+            0% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-5px);
+            }
+            50% {
+                transform: translateX(5px);
+            }
+            75% {
+                transform: translateX(-5px);
+            }
+            100% {
+                transform: translateX(0);
+            }
         }
-      }
-      
-      
-      
+    }
+    
     .card {
         &__image {
             border-radius: 1rem 1rem 0 0;
@@ -77,17 +72,12 @@
         }
         
         &__description {
-            position: relative;
-            background-color: white;
-            border-radius: 0 0 1rem 1rem;
             @include mixins.heart-animated;
             h3,
-            p{
+            p {
                 padding-top: 0.3rem;
-            }
-          
-
             }
         }
     }
-
+}
+}
