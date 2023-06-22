@@ -14,15 +14,24 @@
         left: 1rem;
         top: 50%;
         transform: translateY(-50%);
-        font-size: 20px;
+        font-size: 20px; 
+    }       
+    @media (max-width: variables.$mobile){
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     }
-   
+    
     .banner img {
     display: block;
     width: 100%;
     height: 70vh;
     object-fit: cover;
     object-position: center bottom;
+    @media (max-width: variables.$mobile){
+        height: 30vh;
+    }
 }
     .resto__title  {
     h2{
@@ -34,13 +43,8 @@
         }
     }
     .resto__main{
-        padding: 0 1rem;  
-       
-    
-    }
-
-    
-        
+        padding: 0 1rem; 
+    }       
 .menus{   
     display: grid;
     margin-top: -4rem;
@@ -51,11 +55,22 @@
     background-color: colors.$lightergrey;
     max-width: 1055px;
     margin: auto;
-    position: relative;//afin de positionner ma class menus un cm au dessus sur l image avec top de -1cm
+    position: relative;/*En ajoutant position: relative à la classe .menus et en définissant top: -1cm, on déplace la classe .menus vers le haut d'un centimètre par rapport à sa position normale.*/
     top: -1cm;
+    margin-bottom: -38px;
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius:unset;
     @media (max-width: variables.$breakpoint){
         grid-template-columns: 1fr;
     }
+    @media (max-width:variables.$mobile) {
+        .menus {
+            padding: 0.5rem;
+        
+        }
+      }
+}
+   
     h3{
         text-transform: uppercase;
         font-weight: 300;
@@ -74,6 +89,8 @@
       overflow: hidden;
       padding: 2px;
       animation: menu-appear linear 2000ms;
+     
+      
         .menu-item{
             display: flex;
             background-color: white;
@@ -81,6 +98,8 @@
             overflow: hidden;
             margin-bottom: 2rem;
             @include mixins.box-shadow;
+            
+
             .menu-item__price {
                 margin-left: auto;
                 font-weight: 900;
@@ -143,7 +162,7 @@
             @include mixins.base-button;
         }
     }
-}
+
 
 @keyframes menu-appear {
     0% {
