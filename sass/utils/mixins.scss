@@ -18,17 +18,22 @@
 
 }
 
-@mixin heart($opacity : 1, $font-weight : 400, $color : inherit) {
+@mixin font-awesome($font-weight: 400){
     display: inline-block;
+    position: absolute;
     font-style: normal;
     font-variant: normal;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     font-family: "Font Awesome 5 Free";
     font-weight: $font-weight;
+}
+
+@mixin heart($opacity : 1, $font-weight : 400, $color : inherit) {
+    @include font-awesome($font-weight: 400);
     content: "\f004";
     font-size: 2rem;
-    position: absolute;
+    
     right: 1rem;
     top: 50%;
     transform: translateY(-50%);
@@ -54,5 +59,25 @@
     &:hover::after{
          opacity: 1;
          transform: translateY(-50%) scale(1.1);
+         font-weight: 600;
     }
+}
+
+@mixin base-button{
+    color: rgb(255, 255, 255);
+    font-weight: 300;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    transition: transform 200ms;
+    margin-top: 1rem;
+    cursor: pointer;
+    @include box-shadow;
+    @include gradient;
+    &:hover {
+        transform: scale(1.2);
+        opacity: 0.9;
+    }
+    
 }

@@ -3,10 +3,19 @@
 @use "../utils/variables.scss";
 @use "../utils/animations";
 
-body{
-    background-color: colors.$lightergrey;
-}
-#page-resto{
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Shrikhand&display=swap");
+
+
+
+#page-resto{   
+    header::before {
+        @include mixins.font-awesome($font-weight:900);
+        content: "\f060";
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+    }
     .banner img {
     display: block;
     width: 100%;
@@ -15,12 +24,11 @@ body{
     object-position: center bottom;
 }
     .resto__title  {
-    margin-top: -2rem;
     h2{
+        text-align: center;
     font-family: "Shrikhand","cursive";
-    padding: 2rem 1rem;
+    padding: 2rem 0;
     @include mixins.heart-animated;
-    border-radius: 2rem 2rem 0 0;
     background-color: colors.$lightergrey;
         }
     }
@@ -30,19 +38,41 @@ body{
         
 .menus{   
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    margin-top: -4rem;
+    border-radius: 2rem;
     gap: 1rem;
+    padding: 1rem;
+    position: relative;
+    background-color: colors.$lightergrey;
+    max-width: 1055px;
+    margin: auto;
     @media (max-width: variables.$breakpoint){
         grid-template-columns: 1fr;
     }
+    h3{
+        text-transform: uppercase;
+        font-weight: 300;
+        position: relative;
+        z-index: 20;
+        &::after{
+            content:"";
+            display: block;
+            height: 0.25rem;
+            width: 3rem;
+            margin-top: 10px;
+            background-color: colors.$color-tertiary;
+        }
+    }
    .menus__category {      
       overflow: hidden;
+      padding: 2px;
+      animation: menu-appear linear 2000ms;
         .menu-item{
             display: flex;
             background-color: white;
             border-radius: 1rem;
             overflow: hidden;
-            margin: 1rem;
+            margin-bottom: 2rem;
             @include mixins.box-shadow;
             .menu-item__price {
                 margin-left: auto;
@@ -60,6 +90,9 @@ body{
                     white-space: nowrap;
                     text-overflow : ellipsis;
                 } 
+                h4 {
+                    padding: 1rem 0;
+                }
             }
             .menu-item__check {
                 display: grid;
@@ -82,6 +115,7 @@ body{
             }
         }
             &:hover {
+                cursor: pointer;
                 .menu-item__check{
                     display: grid;
                     margin-right: 0;
@@ -95,8 +129,26 @@ body{
             }
          }
     }
+    .order{
+        display: grid;
+        place-items: center;
+        button{
+            @include mixins.base-button;
+        }
+    }
 }
 
+@keyframes menu-appear {
+    0% {
+        opacity: 0;
+        margin-top: -200px;
+    }
+
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
 
     
     

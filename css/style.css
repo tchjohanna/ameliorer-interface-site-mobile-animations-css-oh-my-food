@@ -1,5 +1,7 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Shrikhand&display=swap"); /*
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Shrikhand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Shrikhand&display=swap");
+/*
 .container_loader{
   display: flex;
   justify-content: center;
@@ -107,6 +109,10 @@
 *, ::after, ::before {
   box-sizing: border-box; /* le contenu sera ajusté automatiquement en fonction de
 la taille disponible. */
+}
+
+body {
+  font-family: "Roboto", sans-serif;
 }
 
 /*MON ANIMATION SUR LES H2 FONCTIONNEMENTS ET RESTAURANTS */
@@ -218,9 +224,9 @@ header h1 {
   padding: 1rem 2rem;
   border: none;
   border-radius: 2rem;
-  background-image: linear-gradient(to top, #9356DC, #FF79DA);
+  transition: transform 200ms;
   margin-top: 1rem;
-  transition: transform 200ms; /* By placing the transition property in the & button rule, you ensure a smooth transition both when hovering over the button and when returning to the initial state. */
+  cursor: pointer;
   box-shadow: 2px 1px 8px -3px rgba(0, 0, 0, 0.75);
   background-image: linear-gradient(to top, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
 }
@@ -351,6 +357,7 @@ header h1 {
 }
 #homepage .menus .card__description::before {
   display: inline-block;
+  position: absolute;
   font-style: normal;
   font-variant: normal;
   text-rendering: auto;
@@ -359,7 +366,6 @@ header h1 {
   font-weight: 400;
   content: "\f004";
   font-size: 2rem;
-  position: absolute;
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
@@ -371,15 +377,15 @@ header h1 {
 }
 #homepage .menus .card__description::after {
   display: inline-block;
+  position: absolute;
   font-style: normal;
   font-variant: normal;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   font-family: "Font Awesome 5 Free";
-  font-weight: 900;
+  font-weight: 400;
   content: "\f004";
   font-size: 2rem;
-  position: absolute;
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
@@ -393,6 +399,7 @@ header h1 {
 #homepage .menus .card__description:hover::after {
   opacity: 1;
   transform: translateY(-50%) scale(1.1);
+  font-weight: 600;
 }
 #homepage .menus .card__description h3,
 #homepage .menus .card__description p {
@@ -486,10 +493,21 @@ footer .proposer {
     order: 4;
   }
 }
-body {
-  background-color: #F6F6F6;
+#page-resto header::before {
+  display: inline-block;
+  position: absolute;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f060";
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
 }
-
 #page-resto .banner img {
   display: block;
   width: 100%;
@@ -497,20 +515,18 @@ body {
   object-fit: cover;
   object-position: center bottom;
 }
-#page-resto .resto__title {
-  margin-top: -2rem;
-}
 #page-resto .resto__title h2 {
+  text-align: center;
   font-family: "Shrikhand", "cursive";
-  padding: 2rem 1rem;
+  padding: 2rem 0;
   position: relative;
   background-color: white;
   border-radius: 0 0 1rem 1rem;
-  border-radius: 2rem 2rem 0 0;
   background-color: #F6F6F6;
 }
 #page-resto .resto__title h2::before {
   display: inline-block;
+  position: absolute;
   font-style: normal;
   font-variant: normal;
   text-rendering: auto;
@@ -519,7 +535,6 @@ body {
   font-weight: 400;
   content: "\f004";
   font-size: 2rem;
-  position: absolute;
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
@@ -531,15 +546,15 @@ body {
 }
 #page-resto .resto__title h2::after {
   display: inline-block;
+  position: absolute;
   font-style: normal;
   font-variant: normal;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   font-family: "Font Awesome 5 Free";
-  font-weight: 900;
+  font-weight: 400;
   content: "\f004";
   font-size: 2rem;
-  position: absolute;
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
@@ -553,29 +568,52 @@ body {
 #page-resto .resto__title h2:hover::after {
   opacity: 1;
   transform: translateY(-50%) scale(1.1);
+  font-weight: 600;
 }
 #page-resto .resto__main {
   padding: 0 1rem;
 }
 #page-resto .menus {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  margin-top: -4rem;
+  border-radius: 2rem;
   gap: 1rem;
+  padding: 1rem;
+  position: relative;
+  background-color: #F6F6F6;
+  max-width: 1055px;
+  margin: auto;
 }
 @media (max-width: 1000px) {
   #page-resto .menus {
     grid-template-columns: 1fr;
   }
 }
+#page-resto .menus h3 {
+  text-transform: uppercase;
+  font-weight: 300;
+  position: relative;
+  z-index: 20;
+}
+#page-resto .menus h3::after {
+  content: "";
+  display: block;
+  height: 0.25rem;
+  width: 3rem;
+  margin-top: 10px;
+  background-color: #99E2D0;
+}
 #page-resto .menus .menus__category {
   overflow: hidden;
+  padding: 2px;
+  animation: menu-appear linear 2000ms;
 }
 #page-resto .menus .menus__category .menu-item {
   display: flex;
   background-color: white;
   border-radius: 1rem;
   overflow: hidden;
-  margin: 1rem;
+  margin-bottom: 2rem;
   box-shadow: 2px 1px 8px -3px rgba(0, 0, 0, 0.75);
 }
 #page-resto .menus .menus__category .menu-item .menu-item__price {
@@ -594,6 +632,9 @@ body {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+#page-resto .menus .menus__category .menu-item .menu-item__description h4 {
+  padding: 1rem 0;
 }
 #page-resto .menus .menus__category .menu-item .menu-item__check {
   display: grid;
@@ -614,6 +655,9 @@ body {
   border-radius: 1rem;
   color: #99E2D0;
 }
+#page-resto .menus .menus__category .menu-item:hover {
+  cursor: pointer;
+}
 #page-resto .menus .menus__category .menu-item:hover .menu-item__check {
   display: grid;
   margin-right: 0;
@@ -627,6 +671,38 @@ body {
   }
   100% {
     transform: rotate(0);
+  }
+}
+#page-resto .order {
+  display: grid;
+  place-items: center;
+}
+#page-resto .order button {
+  color: rgb(255, 255, 255);
+  font-weight: 300;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 2rem;
+  transition: transform 200ms;
+  margin-top: 1rem;
+  cursor: pointer;
+  box-shadow: 2px 1px 8px -3px rgba(0, 0, 0, 0.75);
+  background-image: linear-gradient(to top, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
+}
+#page-resto .order button:hover {
+  transform: scale(1.2);
+  opacity: 0.9;
+}
+
+@keyframes menu-appear {
+  0% {
+    opacity: 0;
+    margin-top: -200px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0;
   }
 }
 
