@@ -6,11 +6,15 @@
 .menus {
     background-color: #f6f6f6;
     margin-bottom: 2rem;
+    top:20px;
+    max-width: 100%;
     
     .menus__cards {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
+        width: 80%; // change this value as needed
+    margin: 10px auto;
         @media (max-width: variables.$breakpoint) {
             grid-template-columns: repeat(1, 1fr);
         }

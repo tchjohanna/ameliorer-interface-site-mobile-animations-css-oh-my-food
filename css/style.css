@@ -155,12 +155,43 @@ h3, p {
   margin: 0;
 }
 
+.tuto h2 {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.menus h2 {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.card h3 {
+  text-transform: uppercase;
+  font-weight: 300;
+  position: relative;
+  z-index: 20;
+}
+.card h3::after {
+  content: "";
+  display: block;
+  height: 0.25rem;
+  width: 3rem;
+  margin-top: 10px;
+  background-color: transparent;
+}
+@media (max-width: 320px) {
+  .card h3::after {
+    content: "";
+    background-color: transparent;
+  }
+}
+
 header {
   font-family: "shrikhand", cursive;
   text-align: center;
   box-shadow: 0 0 0.5rem rbg(0 0 0/25%); /*"0 0 0.5rem" : Les trois premiers chiffres contrôlent l'ombre horizontale, l'ombre verticale et le flou de l'ombre respectivement. Dans ce cas, il n'y a pas de décalage horizontal ou vertical de l'ombre, donc les valeurs sont "0". Le flou de l'ombre est de "0.5rem", soit une demi-rem (unité de mesure relative).
 "rgb(0 0 0 / 25%)" : Il s'agit de la couleur de l'ombre. Dans cet exemple, la couleur de l'ombre est un noir pur (0 0 0) avec une opacité de 25% (25% correspondant à 0.25 en décimal).*/
-  padding: 0.3 rem;
+  padding: 0.3rem;
   margin: 0;
   position: relative; /* permet de positionner un élément de manière relative par rapport à sa position normale dans le flux du document. Lorsqu'un élément a la valeur "position: relative", il reste dans le flux du document, mais on peut le déplacer en utilisant les propriétés "top", "right", "bottom" et "left" pour ajuster sa position par rapport à son emplacement initial.*/
 }
@@ -237,6 +268,8 @@ header h1 {
 
 .tuto {
   counter-reset: steps;
+  width: 80%;
+  margin: 0 auto;
 }
 .tuto ol {
   display: flex;
@@ -283,12 +316,16 @@ header h1 {
 #homepage .menus {
   background-color: #f6f6f6;
   margin-bottom: 2rem;
+  top: 20px;
+  max-width: 100%;
   /*mon animation sur NOUVEAU   */
 }
 #homepage .menus .menus__cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+  width: 80%;
+  margin: 10px auto;
 }
 @media (max-width: 1000px) {
   #homepage .menus .menus__cards {
@@ -436,6 +473,11 @@ footer {
   color: white;
 }
 
+@media only screen and (max-width: 414px) { /* iPhone XR en mode portrait */
+  footer {
+    width: 100vw;
+  }
+}
 footer p {
   padding-right: 60px;
   font-size: 14px;
@@ -509,11 +551,22 @@ footer .proposer {
   font-size: 20px;
 }
 @media (max-width: 414px) {
-  #page-resto {
+  #page-resto header::before {
+    left: -0.3rem;
+  }
+}
+@media (max-width: 414px) {
+  #page-resto header::before {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+}
+@media (max-width: 414px) {
+  #page-resto .banner {
+    width: 100%;
+    height: 30vh;
   }
 }
 #page-resto .banner img {
@@ -523,12 +576,8 @@ footer .proposer {
   object-fit: cover;
   object-position: center bottom;
 }
-@media (max-width: 414px) {
-  #page-resto .banner img {
-    height: 30vh;
-  }
-}
-#page-resto .resto__title h2 {
+
+.resto__title h2 {
   text-align: center;
   font-family: "Shrikhand", "cursive";
   padding: 2rem 0;
@@ -537,7 +586,7 @@ footer .proposer {
   border-radius: 0 0 1rem 1rem;
   background-color: #F6F6F6;
 }
-#page-resto .resto__title h2::before {
+.resto__title h2::before {
   display: inline-block;
   position: absolute;
   font-style: normal;
@@ -557,7 +606,7 @@ footer .proposer {
   opacity: 1;
   transition: all 200ms ease-in-out;
 }
-#page-resto .resto__title h2::after {
+.resto__title h2::after {
   display: inline-block;
   position: absolute;
   font-style: normal;
@@ -578,47 +627,83 @@ footer .proposer {
   transition: all 200ms ease-in-out;
   background-image: linear-gradient(to top, rgb(147, 86, 220), rgb(255, 121, 218));
 }
-#page-resto .resto__title h2:hover::after {
+.resto__title h2:hover::after {
   opacity: 1;
   transform: translateY(-50%) scale(1.1);
   font-weight: 600;
 }
-#page-resto .resto__main {
+
+.resto__main {
   padding: 0 1rem;
 }
-#page-resto .menus {
+
+@media (max-width: 375px) {
+  .resto__title h2 {
+    text-align: left;
+    padding: 0 18px;
+    background: transparent;
+  }
+}
+@media (max-width: 375px) {
+  .resto__title h2::after {
+    right: 4rem;
+    top: 50%;
+  }
+}
+@media (max-width: 375px) {
+  .resto__title h2::before {
+    right: 4rem;
+    top: 50%;
+  }
+}
+@media (max-width: 375px) { /* du 375 px type iPhone SE en mode portrait */
+  h3 {
+    margin-left: 23px;
+  }
+}
+/*centrer les catégories en version mobile SE*/
+@media (max-width: 375px) {
+  .menu-item {
+    max-width: 80%;
+    margin: 0;
+  }
+}
+.menus {
   display: grid;
   margin-top: -4rem;
-  border-radius: 2rem;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   gap: 1rem;
+  margin: auto;
   padding: 1rem;
   position: relative;
   background-color: #F6F6F6;
   max-width: 1055px;
-  margin: auto;
-  position: relative; /*En ajoutant position: relative à la classe .menus et en définissant top: -1cm, on déplace la classe .menus vers le haut d'un centimètre par rapport à sa position normale.*/
   top: -1cm;
   margin-bottom: -38px;
   border-bottom-left-radius: unset;
   border-bottom-right-radius: unset;
 }
 @media (max-width: 1000px) {
-  #page-resto .menus {
+  .menus {
     grid-template-columns: 1fr;
   }
 }
-@media (max-width: 414px) {
-  #page-resto .menus .menus {
-    padding: 0.5rem;
+@media (max-width: 375px) {
+  .menus {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 360px;
   }
 }
-#page-resto h3 {
+
+h3 {
   text-transform: uppercase;
   font-weight: 300;
   position: relative;
   z-index: 20;
 }
-#page-resto h3::after {
+h3::after {
   content: "";
   display: block;
   height: 0.25rem;
@@ -626,12 +711,19 @@ footer .proposer {
   margin-top: 10px;
   background-color: #99E2D0;
 }
-#page-resto .menus__category {
+@media (max-width: 375px) {
+  h3 .resto__title h2::after {
+    right: 4rem;
+    top: 50%;
+  }
+}
+
+.menus__category {
   overflow: hidden;
   padding: 2px;
   animation: menu-appear linear 2000ms;
 }
-#page-resto .menus__category .menu-item {
+.menus__category .menu-item {
   display: flex;
   background-color: white;
   border-radius: 1rem;
@@ -639,27 +731,27 @@ footer .proposer {
   margin-bottom: 2rem;
   box-shadow: 2px 1px 8px -3px rgba(0, 0, 0, 0.75);
 }
-#page-resto .menus__category .menu-item .menu-item__price {
+.menus__category .menu-item .menu-item__price {
   margin-left: auto;
   font-weight: 900;
   padding: 1rem;
   display: flex;
   align-items: flex-end;
 }
-#page-resto .menus__category .menu-item .menu-item__description {
+.menus__category .menu-item .menu-item__description {
   padding: 1rem;
   overflow: hidden;
 }
-#page-resto .menus__category .menu-item .menu-item__description h4,
-#page-resto .menus__category .menu-item .menu-item__description p {
+.menus__category .menu-item .menu-item__description h4,
+.menus__category .menu-item .menu-item__description p {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-#page-resto .menus__category .menu-item .menu-item__description h4 {
+.menus__category .menu-item .menu-item__description h4 {
   padding: 1rem 0;
 }
-#page-resto .menus__category .menu-item .menu-item__check {
+.menus__category .menu-item .menu-item__check {
   display: grid;
   place-items: center;
   flex-shrink: 0;
@@ -669,7 +761,7 @@ footer .proposer {
   width: 4rem;
   transition: margin-right 0.5s;
 }
-#page-resto .menus__category .menu-item .menu-item__check i {
+.menus__category .menu-item .menu-item__check i {
   display: grid;
   place-items: center;
   background: white;
@@ -678,14 +770,14 @@ footer .proposer {
   border-radius: 1rem;
   color: #99E2D0;
 }
-#page-resto .menus__category .menu-item:hover {
+.menus__category .menu-item:hover {
   cursor: pointer;
 }
-#page-resto .menus__category .menu-item:hover .menu-item__check {
+.menus__category .menu-item:hover .menu-item__check {
   display: grid;
   margin-right: 0;
 }
-#page-resto .menus__category .menu-item:hover i {
+.menus__category .menu-item:hover i {
   animation: quarterspin 0.5s ease-in-out;
 }
 @keyframes quarterspin {
@@ -717,6 +809,18 @@ footer .proposer {
 .order button:hover {
   transform: scale(1.2);
   opacity: 0.9;
+}
+@media (max-width: 375px) {
+  .order .order {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8vh; /* Adjust this value if needed */
+  }
+  .order .order button {
+    display: block;
+    font-size: 1rem;
+  }
 }
 
 @keyframes menu-appear {

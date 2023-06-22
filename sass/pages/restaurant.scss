@@ -6,6 +6,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Shrikhand&display=swap");
 
 
+ 
 
 #page-resto{   
     header::before {
@@ -15,22 +16,32 @@
         top: 50%;
         transform: translateY(-50%);
         font-size: 20px; 
-    }       
+          
+    @media (max-width: variables.$mobile){
+    left:-0.3rem;
+    }
     @media (max-width: variables.$mobile){
         display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    }
     
+    }
+    }
+    .banner{
+        @media (max-width: variables.$mobile){
+            width: 100%;
+            height: 30vh;
+    }
+}
     .banner img {
     display: block;
     width: 100%;
     height: 70vh;
     object-fit: cover;
     object-position: center bottom;
-    @media (max-width: variables.$mobile){
-        height: 30vh;
+    
+       
     }
 }
     .resto__title  {
@@ -39,23 +50,65 @@
     font-family: "Shrikhand","cursive";
     padding: 2rem 0;
     @include mixins.heart-animated;
-    background-color: colors.$lightergrey;
+    background-color: colors.$lightergrey; 
+    
+
         }
     }
     .resto__main{
         padding: 0 1rem; 
-    }       
+    }  
+    @media (max-width:variables.$mobile-mini){
+        .resto__title
+        h2{
+            text-align: left;
+            padding: 0 18px; 
+            background: transparent;
+            
+            
+    }
+}
+//le coeur qu'il faut rapprocher du titre h2 avant et pendant la transition
+@media (max-width:variables.$mobile-mini){
+    .resto__title h2::after {
+    right: 4rem; 
+    top: 50%;
+    
+  }
+}
+@media (max-width:variables.$mobile-mini){
+    .resto__title h2::before {
+    right: 4rem; 
+    top: 50%;
+    
+  }
+}
+
+    @media (max-width: variables.$mobile-mini) { /* du 375 px type iPhone SE en mode portrait */
+        h3 {
+            margin-left: 23px; 
+        }
+      }    
+      
+  /*centrer les catégories en version mobile SE*/
+  @media (max-width:variables.$mobile-mini) {
+    .menu-item {
+        max-width: 80%; // Ajuste le pourcentage en fonction de la largeur désirée
+        margin: 0; //pour centrer le menu-item sur la page
+    }
+}    
+
 .menus{   
     display: grid;
     margin-top: -4rem;
-    border-radius: 2rem;
+    border-top-left-radius: 20px;
+    border-top-right-radius:20px;
     gap: 1rem;
+    margin: auto;
     padding: 1rem;
     position: relative;
     background-color: colors.$lightergrey;
     max-width: 1055px;
-    margin: auto;
-    position: relative;/*En ajoutant position: relative à la classe .menus et en définissant top: -1cm, on déplace la classe .menus vers le haut d'un centimètre par rapport à sa position normale.*/
     top: -1cm;
     margin-bottom: -38px;
     border-bottom-left-radius: unset;
@@ -63,14 +116,15 @@
     @media (max-width: variables.$breakpoint){
         grid-template-columns: 1fr;
     }
-    @media (max-width:variables.$mobile) {
-        .menus {
-            padding: 0.5rem;
-        
-        }
-      }
+    @media (max-width: variables.$mobile-mini){      
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 360px;
+    //overflow: auto;
 }
-   
+
+    }
+
     h3{
         text-transform: uppercase;
         font-weight: 300;
@@ -84,13 +138,18 @@
             margin-top: 10px;
             background-color: colors.$color-tertiary;
         }
+        @media (max-width:variables.$mobile-mini){
+            .resto__title h2::after {
+            right: 4rem; 
+            top: 50%;
+            
+          }
+        }
     }
    .menus__category {      
       overflow: hidden;
       padding: 2px;
       animation: menu-appear linear 2000ms;
-     
-      
         .menu-item{
             display: flex;
             background-color: white;
@@ -99,8 +158,8 @@
             margin-bottom: 2rem;
             @include mixins.box-shadow;
             
-
-            .menu-item__price {
+    
+        .menu-item__price {
                 margin-left: auto;
                 font-weight: 900;
                 padding: 1rem;
@@ -154,15 +213,26 @@
             
             }
          }
-    }
+    
     .order{
         display: grid;
         place-items: center;
         button{
             @include mixins.base-button;
         }
+        @media (max-width: variables.$mobile-mini) {
+            .order {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 8vh; /* Adjust this value if needed */
+            }
+            .order button{
+                display: block;
+                font-size: 1rem;
+            }
+        }  
     }
-
 
 @keyframes menu-appear {
     0% {
@@ -176,5 +246,4 @@
     }
 }
 
-    
-    
+

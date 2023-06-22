@@ -1,4 +1,7 @@
 @use "./../utils/colors.scss";
+@use "../utils/variables.scss";
+
+
 /* Animation sur les icônes du footer */
 .footer-icons {
     animation: spinAnimation 8s linear forwards;
@@ -29,6 +32,14 @@
     gap: 20px;
     color: white;
   }
+
+  @media only screen and (max-width: 414px) { /* iPhone XR en mode portrait */
+    footer {
+      width: 100vw;
+    }
+  }
+  
+
   
   footer p {
     padding-right: 60px;
