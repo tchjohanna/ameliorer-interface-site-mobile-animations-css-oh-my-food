@@ -16,6 +16,7 @@
         transform: translateY(-50%);
         font-size: 20px;
     }
+   
     .banner img {
     display: block;
     width: 100%;
@@ -33,8 +34,12 @@
         }
     }
     .resto__main{
-        padding: 0 1rem;       
+        padding: 0 1rem;  
+       
+    
     }
+
+    
         
 .menus{   
     display: grid;
@@ -46,6 +51,8 @@
     background-color: colors.$lightergrey;
     max-width: 1055px;
     margin: auto;
+    position: relative;//afin de positionner ma class menus un cm au dessus sur l image avec top de -1cm
+    top: -1cm;
     @media (max-width: variables.$breakpoint){
         grid-template-columns: 1fr;
     }

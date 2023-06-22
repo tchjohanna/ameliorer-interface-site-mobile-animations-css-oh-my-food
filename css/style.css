@@ -583,6 +583,8 @@ footer .proposer {
   background-color: #F6F6F6;
   max-width: 1055px;
   margin: auto;
+  position: relative;
+  top: -1cm;
 }
 @media (max-width: 1000px) {
   #page-resto .menus {
