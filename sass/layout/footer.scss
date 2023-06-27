@@ -31,13 +31,10 @@
     flex-direction: row-reverse;
     gap: 20px;
     color: white;
+   
   }
 
-  @media only screen and (max-width: 414px) { /* iPhone XR en mode portrait */
-    footer {
-      width: 100vw;
-    }
-  }
+  
   
 
   

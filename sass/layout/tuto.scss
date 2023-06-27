@@ -8,7 +8,7 @@ $tuto-bullet-height: 1rem;
 
 .tuto{
     counter-reset:steps;
-    width: 80%; // Ajustez cette valeur en fonction de vos besoins
+    width: 80%; 
     margin: 0 auto; // Cela centrera l'élément horizontalement sur la page
 
     & ol{

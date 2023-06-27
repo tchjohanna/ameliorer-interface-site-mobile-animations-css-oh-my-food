@@ -61,28 +61,29 @@
     @media (max-width:variables.$mobile-mini){
         .resto__title
         h2{
-            text-align: left;
+            margin-left: -22px;
             padding: 0 18px; 
-            background: transparent;
-            
-            
+            background: transparent;       
+    }
+    .resto__title h2::before{
+        right: -1rem;
+        top: 50%;
     }
 }
 //le coeur qu'il faut rapprocher du titre h2 avant et pendant la transition
 @media (max-width:variables.$mobile-mini){
     .resto__title h2::after {
-    right: 4rem; 
+    right: -1rem; 
     top: 50%;
     
   }
-}
-@media (max-width:variables.$mobile-mini){
-    .resto__title h2::before {
-    right: 4rem; 
+  .resto__title h2::before {
+           
+    right: -1rem;
     top: 50%;
-    
-  }
 }
+}
+
 
     @media (max-width: variables.$mobile-mini) { /* du 375 px type iPhone SE en mode portrait */
         h3 {
@@ -217,19 +218,21 @@
     .order{
         display: grid;
         place-items: center;
+        margin-bottom: 20px;
+        margin-left: -4rem;
         button{
             @include mixins.base-button;
         }
         @media (max-width: variables.$mobile-mini) {
             .order {
-                display: flex;
+                display: grid;
                 justify-content: center;
-                align-items: center;
-                height: 8vh; /* Adjust this value if needed */
+                height: 8vh; 
             }
             .order button{
                 display: block;
                 font-size: 1rem;
+                
             }
         }  
     }

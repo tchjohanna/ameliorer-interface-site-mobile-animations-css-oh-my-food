@@ -203,6 +203,11 @@ header h1 {
   animation: wiggleAnimation 2s linear 2;
 }
 
+@media (max-width: 375px) {
+  header h1 {
+    font-size: 2rem;
+  }
+}
 @keyframes wiggleAnimation {
   0% {
     transform: rotate(0deg);
@@ -226,7 +231,7 @@ header h1 {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  background-color: #f3f3f3;
+  background-color: #7e7e7e;
   text-align: center;
   padding: 0.5rem;
 }
@@ -241,6 +246,8 @@ header h1 {
 /* var(--lightergrey);*/
 .explorer {
   text-align: center;
+  background-color: #F6F6F6;
+  height: 230px;
 }
 .explorer h2 {
   font-size: 2rem;
@@ -473,11 +480,6 @@ footer {
   color: white;
 }
 
-@media only screen and (max-width: 414px) { /* iPhone XR en mode portrait */
-  footer {
-    width: 100vw;
-  }
-}
 footer p {
   padding-right: 60px;
   font-size: 14px;
@@ -639,20 +641,22 @@ footer .proposer {
 
 @media (max-width: 375px) {
   .resto__title h2 {
-    text-align: left;
+    margin-left: -22px;
     padding: 0 18px;
     background: transparent;
   }
-}
-@media (max-width: 375px) {
-  .resto__title h2::after {
-    right: 4rem;
+  .resto__title h2::before {
+    right: -1rem;
     top: 50%;
   }
 }
 @media (max-width: 375px) {
+  .resto__title h2::after {
+    right: -1rem;
+    top: 50%;
+  }
   .resto__title h2::before {
-    right: 4rem;
+    right: -1rem;
     top: 50%;
   }
 }
@@ -792,6 +796,8 @@ h3::after {
 .order {
   display: grid;
   place-items: center;
+  margin-bottom: 20px;
+  margin-left: -4rem;
 }
 .order button {
   color: rgb(255, 255, 255);
@@ -812,10 +818,9 @@ h3::after {
 }
 @media (max-width: 375px) {
   .order .order {
-    display: flex;
+    display: grid;
     justify-content: center;
-    align-items: center;
-    height: 8vh; /* Adjust this value if needed */
+    height: 8vh;
   }
   .order .order button {
     display: block;
