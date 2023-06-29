@@ -18,7 +18,7 @@
         font-size: 20px; 
           
     @media (max-width: variables.$mobile){
-    left:-0.3rem;
+    //left:-0.3rem;
     }
     @media (max-width: variables.$mobile){
         display: flex;
@@ -87,14 +87,14 @@
 
     @media (max-width: variables.$mobile-mini) { /* du 375 px type iPhone SE en mode portrait */
         h3 {
-            margin-left: 23px; 
+           // margin-left: 23px; 
         }
       }    
       
   /*centrer les catégories en version mobile SE*/
   @media (max-width:variables.$mobile-mini) {
     .menu-item {
-        max-width: 80%; // Ajuste le pourcentage en fonction de la largeur désirée
+        width: 95%; // Ajuste le pourcentage en fonction de la largeur désirée
         margin: 0; //pour centrer le menu-item sur la page
     }
 }    
@@ -120,7 +120,6 @@
     @media (max-width: variables.$mobile-mini){      
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    width: 360px;
     //overflow: auto;
 }
 
@@ -153,6 +152,7 @@
       animation: menu-appear linear 2000ms;
         .menu-item{
             display: flex;
+            justify-content: space-between;
             background-color: white;
             border-radius: 1rem;
             overflow: hidden;
@@ -161,7 +161,6 @@
             
     
         .menu-item__price {
-                margin-left: auto;
                 font-weight: 900;
                 padding: 1rem;
                 display: flex;             
@@ -231,7 +230,7 @@
             }
             .order button{
                 display: block;
-                font-size: 1rem;
+                font-size: 1rem;//n'est pas pris en compte sur le navigateur???
                 
             }
         }  

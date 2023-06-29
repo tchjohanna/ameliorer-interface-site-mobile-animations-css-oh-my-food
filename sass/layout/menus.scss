@@ -5,7 +5,7 @@
 #homepage{
 .menus {
     background-color: #f6f6f6;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     top:20px;
     max-width: 100%;
     
@@ -13,7 +13,7 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
-        width: 80%; 
+        width: 100%; 
         margin: 10px auto;
         @media (max-width: variables.$breakpoint) {
             grid-template-columns: repeat(1, 1fr);
@@ -77,7 +77,12 @@
         
         &__description {
             @include mixins.heart-animated;
-            h3,
+            padding-left: 16px;
+            padding-bottom: 16px;
+            h3 {
+                padding-bottom: 0;
+                font-weight: 600;
+            }
             p {
                 padding-top: 0.3rem;
             }

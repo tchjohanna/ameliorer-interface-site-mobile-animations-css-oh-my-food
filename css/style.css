@@ -113,6 +113,7 @@ la taille disponible. */
 
 body {
   font-family: "Roboto", sans-serif;
+  margin: 0;
 }
 
 /*MON ANIMATION SUR LES H2 FONCTIONNEMENTS ET RESTAURANTS */
@@ -231,7 +232,7 @@ header h1 {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  background-color: #7e7e7e;
+  background-color: #EAEAEA;
   text-align: center;
   padding: 0.5rem;
 }
@@ -247,7 +248,7 @@ header h1 {
 .explorer {
   text-align: center;
   background-color: #F6F6F6;
-  height: 230px;
+  padding: 20px;
 }
 .explorer h2 {
   font-size: 2rem;
@@ -278,6 +279,12 @@ header h1 {
   width: 80%;
   margin: 0 auto;
 }
+@media screen and (max-width: 768px) {
+  .tuto {
+    width: 100%;
+    padding: 20px;
+  }
+}
 .tuto ol {
   display: flex;
   gap: 2rem;
@@ -285,6 +292,11 @@ header h1 {
 @media (max-width: 1000px) {
   .tuto ol {
     flex-direction: column;
+  }
+}
+@media screen and (max-width: 768px) {
+  .tuto ol {
+    padding: 0;
   }
 }
 .tuto li {
@@ -322,7 +334,7 @@ header h1 {
 
 #homepage .menus {
   background-color: #f6f6f6;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   top: 20px;
   max-width: 100%;
   /*mon animation sur NOUVEAU   */
@@ -331,7 +343,7 @@ header h1 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  width: 80%;
+  width: 100%;
   margin: 10px auto;
 }
 @media (max-width: 1000px) {
@@ -398,6 +410,8 @@ header h1 {
   position: relative;
   background-color: white;
   border-radius: 0 0 1rem 1rem;
+  padding-left: 16px;
+  padding-bottom: 16px;
 }
 #homepage .menus .card__description::before {
   display: inline-block;
@@ -445,7 +459,10 @@ header h1 {
   transform: translateY(-50%) scale(1.1);
   font-weight: 600;
 }
-#homepage .menus .card__description h3,
+#homepage .menus .card__description h3 {
+  padding-bottom: 0;
+  font-weight: 600;
+}
 #homepage .menus .card__description p {
   padding-top: 0.3rem;
 }
@@ -554,11 +571,6 @@ footer .proposer {
 }
 @media (max-width: 414px) {
   #page-resto header::before {
-    left: -0.3rem;
-  }
-}
-@media (max-width: 414px) {
-  #page-resto header::before {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -660,15 +672,11 @@ footer .proposer {
     top: 50%;
   }
 }
-@media (max-width: 375px) { /* du 375 px type iPhone SE en mode portrait */
-  h3 {
-    margin-left: 23px;
-  }
-}
+@media (max-width: 375px) { /* du 375 px type iPhone SE en mode portrait */ }
 /*centrer les catégories en version mobile SE*/
 @media (max-width: 375px) {
   .menu-item {
-    max-width: 80%;
+    width: 95%;
     margin: 0;
   }
 }
@@ -697,7 +705,6 @@ footer .proposer {
   .menus {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    width: 360px;
   }
 }
 
@@ -729,6 +736,7 @@ h3::after {
 }
 .menus__category .menu-item {
   display: flex;
+  justify-content: space-between;
   background-color: white;
   border-radius: 1rem;
   overflow: hidden;
@@ -736,7 +744,6 @@ h3::after {
   box-shadow: 2px 1px 8px -3px rgba(0, 0, 0, 0.75);
 }
 .menus__category .menu-item .menu-item__price {
-  margin-left: auto;
   font-weight: 900;
   padding: 1rem;
   display: flex;

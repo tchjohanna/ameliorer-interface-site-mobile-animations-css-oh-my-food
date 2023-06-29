@@ -10,12 +10,18 @@ $tuto-bullet-height: 1rem;
     counter-reset:steps;
     width: 80%; 
     margin: 0 auto; // Cela centrera l'élément horizontalement sur la page
-
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        padding: 20px;
+    }
     & ol{
         display:flex;
         gap: 2rem;
         @media(max-width:1000px){
         flex-direction:column;
+        }
+        @media screen and (max-width: 768px) {
+            padding: 0;
         }
     }
     & li{
