@@ -85,11 +85,7 @@
 }
 
 
-    @media (max-width: variables.$mobile-mini) { /* du 375 px type iPhone SE en mode portrait */
-        h3 {
-           // margin-left: 23px; 
-        }
-      }    
+        
       
   /*centrer les catégories en version mobile SE*/
   @media (max-width:variables.$mobile-mini) {
