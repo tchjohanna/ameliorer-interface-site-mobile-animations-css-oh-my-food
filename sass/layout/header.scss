@@ -1,42 +1,8 @@
-@use "../utils/variables.scss";
-
 header {
-    font-family: "shrikhand", cursive;
-    text-align: center;
-    box-shadow: 0 0 0.5rem rbg(0 0 0 /25%);/*"0 0 0.5rem" : Les trois premiers chiffres contrôlent l'ombre horizontale, l'ombre verticale et le flou de l'ombre respectivement. Dans ce cas, il n'y a pas de décalage horizontal ou vertical de l'ombre, donc les valeurs sont "0". Le flou de l'ombre est de "0.5rem", soit une demi-rem (unité de mesure relative).
-    "rgb(0 0 0 / 25%)" : Il s'agit de la couleur de l'ombre. Dans cet exemple, la couleur de l'ombre est un noir pur (0 0 0) avec une opacité de 25% (25% correspondant à 0.25 en décimal).*/
-    padding: 0.3rem;
-    margin: 0;
-    position: relative;/* permet de positionner un élément de manière relative par rapport à sa position normale dans le flux du document. Lorsqu'un élément a la valeur "position: relative", il reste dans le flux du document, mais on peut le déplacer en utilisant les propriétés "top", "right", "bottom" et "left" pour ajuster sa position par rapport à son emplacement initial.*/
- }
-
- /*mon animation*/
- header h1 {
   font-family: "Shrikhand", cursive;
-  font-size: 3rem;
-  animation: wiggleAnimation 2s linear 2;
- }
-
-@media (max-width: variables.$mobile-mini) {
-  header h1{
-    font-size: 2rem;
-  }
-}
-
-@keyframes wiggleAnimation {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(10deg);
-  }
-  50% {
-    transform: rotate(0deg);
-  }
-  75% {
-    transform: rotate(-10deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
+  text-align: center;
+  box-shadow: 0 0 0.5rem rgb(0 0 0 /25%);
+  padding: 0.3rem;
+  margin: 0;
+  position: relative;
 }

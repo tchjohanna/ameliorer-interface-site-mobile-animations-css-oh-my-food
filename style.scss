@@ -1,12 +1,8 @@
-@use "./sass/base.scss";
-@use "./sass/layout/header.scss";
-@use "./sass/layout/city.scss";
-@use "./sass/layout/explorer.scss";
-@use "./sass/layout/tuto.scss";
-@use "./sass/layout/menus.scss";
-@use "./sass/layout/footer.scss";
-@use "./sass/pages/restaurant.scss";
-
-
-
-
+@use "./sass/base";
+@use "./sass/layout/header";
+@use "./sass/layout/city";
+@use "./sass/layout/explorer";
+@use "./sass/layout/tuto";
+@use "./sass/layout/menus";
+@use "./sass/layout/footer";
+@use "./sass/pages/restaurant";

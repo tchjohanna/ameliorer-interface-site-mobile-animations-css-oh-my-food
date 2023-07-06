@@ -1,92 +1,55 @@
-@use "../utils/variables.scss";
-@use "../utils/colors.scss";
-@use "../utils/mixins.scss";
+@use "../utils/variables";
+@use "../utils/colors";
+@use "../utils/mixins";
 
-#homepage{
-.menus {
+#homepage {
+  .menus {
     background-color: #f6f6f6;
-    margin-bottom: 1rem;
-    top:20px;
-    max-width: 100%;
-    
+    margin-bottom: 2rem;
+
     .menus__cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      @media (max-width: variables.$breakpoint) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      .new {
+        position: relative;
+      }
+      .new::before {
+        content: "Nouveau";
+        position: absolute;
+        height: 2rem;
+        width: 5rem;
+        background-color: colors.$color-tertiary;
+        color: darken(colors.$color-tertiary, 50%);
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-        width: 100%; 
-        margin: 10px auto;
-        @media (max-width: variables.$breakpoint) {
-            grid-template-columns: repeat(1, 1fr);
-        }
-        .new {      
-            position: relative;
-        }
-        .new::before {
-            content: "Nouveau";
-            position: absolute;
-            height: 2rem;
-            width: 5rem;
-            background-color: colors.$color-tertiary;
-            color: darken(colors.$color-tertiary, 50%);
-            display: grid;
-            place-items: center;
-            right: 1rem;
-            top: 1rem;
-        }
+        place-items: center;
+        right: 1rem;
+        top: 1rem;
+      }
     }
-    
-    /*mon animation sur NOUVEAU   */
-    .animate-card {
-        transition: transform 0.3s ease-in-out;
-      
-        &:hover {
-            animation: shake 0.5s ease-in-out infinite;
-        }
-      
-        @keyframes shake {
-            0% {
-                transform: translateX(0);
-            }
-            25% {
-                transform: translateX(-5px);
-            }
-            50% {
-                transform: translateX(5px);
-            }
-            75% {
-                transform: translateX(-5px);
-            }
-            100% {
-                transform: translateX(0);
-            }
-        }
-    }
-    
+
     .card {
-        &__image {
-            border-radius: 1rem 1rem 0 0;
-            height: 15rem;
-            background-size: cover;
+      &__image {
+        height: 15rem;
+        border-radius: 1rem 1rem 0 0;
+        background-size: cover;
+        background-position: center;
+      }
+      @for $i from 1 through 4 {
+        &__image-#{$i} {
+          background-image: url("../assets/menu-#{$i}.jpg");
         }
-        
-        @for $i from 1 through 4 {
-            &__image-#{$i} {
-                background-image: url("../../assets/menu-#{$i}.jpg");
-            }
+      }
+      &__description {
+        @include mixins.heart-animated;
+        h3,
+        p {
+          padding: 0.3rem;
         }
-        
-        &__description {
-            @include mixins.heart-animated;
-            padding-left: 16px;
-            padding-bottom: 16px;
-            h3 {
-                padding-bottom: 0;
-                font-weight: 600;
-            }
-            p {
-                padding-top: 0.3rem;
-            }
-        }
+      }
     }
-}
+  }
 }

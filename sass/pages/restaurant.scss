@@ -1,247 +1,152 @@
-@use "../utils/mixins.scss";
-@use "../utils/colors.scss";
-@use "../utils/variables.scss";
+@use "../utils/mixins";
+@use "../utils/variables";
+@use "../utils/colors";
 @use "../utils/animations";
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Shrikhand&display=swap");
-
-
- 
-
-#page-resto{   
-    header::before {
-        @include mixins.font-awesome($font-weight:900);
-        content: "\f060";
-        left: 1rem;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 20px; 
-          
-    @media (max-width: variables.$mobile){
-    //left:-0.3rem;
-    }
-    @media (max-width: variables.$mobile){
-        display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    }
-    }
-    .banner{
-        @media (max-width: variables.$mobile){
-            width: 100%;
-            height: 30vh;
-    }
+body {
+  background-color: colors.$lightergrey;
 }
-    .banner img {
+
+#page-resto {
+  header {
+    &:hover::before {
+      @include mixins.transform-zoom($zoom-level: 1.2, $transformation: translateY(-50%));
+    }
+    &::before {
+      @include mixins.font-awesome($font-weight: 900);
+      content: "\f060";
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      transition: transform 200ms;
+    }
+  }
+
+  .banner img {
     display: block;
     width: 100%;
     height: 70vh;
     object-fit: cover;
-    object-position: center bottom;
-    
-       
-    }
-}
-    .resto__title  {
-    h2{
-        text-align: center;
-    font-family: "Shrikhand","cursive";
-    padding: 2rem 0;
-    @include mixins.heart-animated;
-    background-color: colors.$lightergrey; 
-    
-
-        }
-    }
-    .resto__main{
-        padding: 0 1rem; 
-    }  
-    @media (max-width:variables.$mobile-mini){
-        .resto__title
-        h2{
-            margin-left: -22px;
-            padding: 0 18px; 
-            background: transparent;       
-    }
-    .resto__title h2::before{
-        right: -1rem;
-        top: 50%;
-    }
-}
-//le coeur qu'il faut rapprocher du titre h2 avant et pendant la transition
-@media (max-width:variables.$mobile-mini){
-    .resto__title h2::after {
-    right: -1rem; 
-    top: 50%;
-    
+    object-position: center;
   }
-  .resto__title h2::before {
-           
-    right: -1rem;
-    top: 50%;
-}
-}
 
-
-        
-      
-  /*centrer les catégories en version mobile SE*/
-  @media (max-width:variables.$mobile-mini) {
-    .menu-item {
-        width: 95%; // Ajuste le pourcentage en fonction de la largeur désirée
-        margin: 0; //pour centrer le menu-item sur la page
+  .resto__title {
+    margin-top: -2rem;
+    h2 {
+      font-family: "Shrikhand", "cursive";
+      padding: 2rem 1rem;
+      @include mixins.heart-animated;
+      border-radius: 2rem 2rem 0 0;
+      background-color: colors.$lightergrey;
     }
-}    
+  }
 
-.menus{   
+  .resto-main {
+    padding: 0 1rem;
+  }
+  .menus {
     display: grid;
-    margin-top: -4rem;
-    border-top-left-radius: 20px;
-    border-top-right-radius:20px;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
-    margin: auto;
-    padding: 1rem;
-    position: relative;
-    background-color: colors.$lightergrey;
-    max-width: 1055px;
-    top: -1cm;
-    margin-bottom: -38px;
-    border-bottom-left-radius: unset;
-    border-bottom-right-radius:unset;
-    @media (max-width: variables.$breakpoint){
-        grid-template-columns: 1fr;
+    @media (max-width: variables.$breakpoint) {
+      grid-template-columns: 1fr;
     }
-    @media (max-width: variables.$mobile-mini){      
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    //overflow: auto;
-}
-
+    h3 {
+      text-transform: uppercase;
+      font-weight: 400;
+      position: relative;
+      margin-bottom: 1rem;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 1.5rem;
+        left: 0;
+        height: 0.25rem;
+        width: 3rem;
+        background-color: colors.$color-tertiary;
+      }
     }
+    .menus__category {
+      overflow: hidden;
 
-    h3{
-        text-transform: uppercase;
-        font-weight: 300;
-        position: relative;
-        z-index: 20;
-        &::after{
-            content:"";
-            display: block;
-            height: 0.25rem;
-            width: 3rem;
-            margin-top: 10px;
-            background-color: colors.$color-tertiary;
+      .menu-item {
+        $numberOfItems: 3;
+        @for $i from 1 through $numberOfItems {
+          &:nth-child(#{$i}) {
+            animation-delay: 100ms * $i;
+          }
         }
-        @media (max-width:variables.$mobile-mini){
-            .resto__title h2::after {
-            right: 4rem; 
-            top: 50%;
+        display: flex;
+        background-color: white;
+        border-radius: 1rem;
+        overflow: hidden;
+        margin: 0.5rem;
+        @include mixins.box-shadow;
+        animation: appear 1s;
+        animation-fill-mode: both;
+
+        .menu-item__price {
+          margin-left: auto;
+          font-weight: 900;
+          padding: 1rem;
+          display: flex;
+          align-items: flex-end;
+        }
+        .menu-item__description {
+          padding: 1rem;
+          overflow: hidden;
+          h4,
+          p {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+        .menu-item__check {
+          display: grid;
+          place-items: center;
+          flex-shrink: 0;
+          $button-width: 4rem;
+          border-radius: 0 1rem 1rem 0;
+          background-color: colors.$color-tertiary;
+          margin-right: -1 * $button-width;
+          width: $button-width;
+          transition: margin-right 0.5s;
+          i {
+            $size: 1rem;
+            display: grid;
+            place-items: center;
+            background: white;
+            height: $size;
+            width: $size;
+            border-radius: 1rem;
+            color: colors.$color-tertiary;
+          }
+        }
+        &:hover {
+          cursor: pointer;
+          .menu-item__check {
+            margin-right: 0;
+         
+}
+          }
+          i {
+            @include animations.quarterspin;
+            animation: quarterspin 0.5s ease-in-out;
             
           }
         }
+      }
     }
-   .menus__category {      
-      overflow: hidden;
-      padding: 2px;
-      animation: menu-appear linear 2000ms;
-        .menu-item{
-            display: flex;
-            justify-content: space-between;
-            background-color: white;
-            border-radius: 1rem;
-            overflow: hidden;
-            margin-bottom: 2rem;
-            @include mixins.box-shadow;
-            
-    
-        .menu-item__price {
-                font-weight: 900;
-                padding: 1rem;
-                display: flex;             
-                align-items: flex-end;
-            }
-            .menu-item__description{
-                padding: 1rem;
-                overflow: hidden;
-                h4, 
-                p {
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow : ellipsis;
-                } 
-                h4 {
-                    padding: 1rem 0;
-                }
-            }
-            .menu-item__check {
-                display: grid;
-                place-items: center;
-                flex-shrink: 0;
-                $button-width: 4rem;
-                border-radius: 0 1rem 1rem 0;
-                background-color: colors.$color-tertiary;
-                margin-right: -1 * $button-width;
-                width: $button-width;
-                transition: margin-right 0.5s;
-            i {
-                display: grid;
-                place-items: center;
-                background: white;
-                aspect-ratio: 1;
-                width: 2rem;
-                border-radius: 1rem;
-                color: colors.$color-tertiary;
-            }
-        }
-            &:hover {
-                cursor: pointer;
-                .menu-item__check{
-                    display: grid;
-                    margin-right: 0;
-                }
-                i {
-                    @include animations.quarterspin;
-                    animation: quarterspin 0.5s ease-in-out;
-                     }
-                }
-            
-            }
-         }
-    
-    .order{
-        display: grid;
-        place-items: center;
-        margin-bottom: 20px;
-        margin-left: -4rem;
-        button{
-            @include mixins.base-button;
-        }
-        @media (max-width: variables.$mobile-mini) {
-            .order {
-                display: grid;
-                justify-content: center;
-                height: 8vh; 
-            }
-            .order button{
-                display: block;
-                font-size: 1rem;//n'est pas pris en compte sur le navigateur???
-                
-            }
-        }  
-    }
+  }
 
-@keyframes menu-appear {
-    0% {
-        opacity: 0;
-        margin-top: -200px;
+  section.order {
+    height: 30vh;
+    display: grid;
+    place-items: center;
+    button {
+      @include mixins.base-button;
     }
-
-    100% {
-        opacity: 1;
-        margin-top: 0;
-    }
-}
-
+  }
 
