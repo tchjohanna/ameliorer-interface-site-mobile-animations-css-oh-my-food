@@ -373,7 +373,12 @@ body {
   object-position: center;
 }
 #page-resto .resto__title {
-  margin-top: -2rem;
+  text-align: center; /* Centre le texte en mode desktop */
+}
+@media (max-width: 1000px) {
+  #page-resto .resto__title {
+    text-align: left; /* Aligne le texte à gauche en mode breakpoint */
+  }
 }
 #page-resto .resto__title h2 {
   font-family: "Shrikhand", "cursive";
@@ -430,11 +435,17 @@ body {
   transform: translateY(-50%) scale(1.1);
 }
 #page-resto .resto-main {
-  padding: 0 1rem;
+  padding: 0 1rem; /* Ajoute un padding de 1rem en mode breakpoint */
+}
+@media (min-width: 1000px) {
+  #page-resto .resto-main {
+    margin: 0 8rem; /* Ajoute une marge de 8rem à gauche et à droite en mode desktop */
+    padding: 0; /* Supprime le padding en mode desktop */
+  }
 }
 #page-resto .menus {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 1rem;
 }
 @media (max-width: 1000px) {

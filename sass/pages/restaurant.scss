@@ -32,25 +32,39 @@ body {
   }
 
   .resto__title {
-    margin-top: -2rem;
-    h2 {
+    //margin-top: -2rem;
+    text-align: center; /* Centre le texte en mode desktop */
+  }
+    @media (max-width: variables.$breakpoint) {
+      .resto__title {
+        text-align: left; /* Aligne le texte à gauche en mode breakpoint */
+      }
+    }
+    .resto__title h2 {
       font-family: "Shrikhand", "cursive";
       padding: 2rem 1rem;
       @include mixins.heart-animated;
       border-radius: 2rem 2rem 0 0;
       background-color: colors.$lightergrey;
     }
-  }
+  
 
   .resto-main {
-    padding: 0 1rem;
+    //padding: 0 1rem;
+    padding: 0 1rem; /* Ajoute un padding de 1rem en mode breakpoint */
+    @media (min-width: variables.$breakpoint) {
+      margin: 0 8rem; /* Ajoute une marge de 8rem à gauche et à droite en mode desktop */
+      padding: 0; /* Supprime le padding en mode desktop */
+    }
+
   }
   .menus {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
     @media (max-width: variables.$breakpoint) {
       grid-template-columns: 1fr;
+      
     }
     h3 {
       text-transform: uppercase;
