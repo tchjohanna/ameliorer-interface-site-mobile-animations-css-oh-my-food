@@ -3,10 +3,6 @@
 @use "../utils/colors";
 @use "../utils/animations";
 
-body {
-  background-color: colors.$lightergrey;
-}
-
 #page-resto {
   header {
     &:hover::before {
@@ -32,8 +28,11 @@ body {
   }
 
   .resto__title {
-    //margin-top: -2rem;
+    margin-top: -2rem!important;
     text-align: center; /* Centre le texte en mode desktop */
+    @media (min-width: variables.$breakpoint) {
+      margin: 0 8rem; /* Ajoute une marge de 8rem à gauche et à droite en mode desktop */
+    }
   }
     @media (max-width: variables.$breakpoint) {
       .resto__title {
@@ -46,15 +45,22 @@ body {
       @include mixins.heart-animated;
       border-radius: 2rem 2rem 0 0;
       background-color: colors.$lightergrey;
+      @media (min-width: variables.$breakpoint) {
+        padding: 2rem 8rem; /* Supprime le padding en mode desktop */
+        &:before, &::after {
+          right: 8rem!important;
+        }
+      }
     }
   
 
   .resto-main {
+    background-color: colors.$lightergrey;
     //padding: 0 1rem;
     padding: 0 1rem; /* Ajoute un padding de 1rem en mode breakpoint */
     @media (min-width: variables.$breakpoint) {
       margin: 0 8rem; /* Ajoute une marge de 8rem à gauche et à droite en mode desktop */
-      padding: 0; /* Supprime le padding en mode desktop */
+      padding: 0 8rem; /* Supprime le padding en mode desktop */
     }
 
   }
@@ -129,13 +135,8 @@ body {
           transition: margin-right 0.5s;
           i {
             $size: 1rem;
-            display: grid;
-            place-items: center;
-            background: white;
-            height: $size;
-            width: $size;
             border-radius: 1rem;
-            color: colors.$color-tertiary;
+            color: white;
           }
         }
         &:hover {

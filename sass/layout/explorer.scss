@@ -4,7 +4,12 @@
 .explorer {
     text-align: center;
     
-    padding: 20px;
+    padding: 20px 7rem;
+
+    @media (max-width: 1000px) {
+        padding: 20px 1rem;
+    }
+
 
     h2 {
         font-size: 2rem;

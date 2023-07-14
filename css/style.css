@@ -14,12 +14,6 @@ body {
 
 main {
   margin: 0;
-  padding: 0 7rem;
-}
-@media (max-width: 1000px) {
-  main {
-    padding: 0 1rem;
-  }
 }
 
 h1,
@@ -65,7 +59,12 @@ header {
 
 .explorer {
   text-align: center;
-  padding: 20px;
+  padding: 20px 7rem;
+}
+@media (max-width: 1000px) {
+  .explorer {
+    padding: 20px 1rem;
+  }
 }
 .explorer h2 {
   font-size: 2rem;
@@ -94,6 +93,13 @@ header {
 .tuto {
   counter-reset: steps;
   margin-bottom: 2rem;
+  padding: 2rem 7rem;
+  background-color: white;
+}
+@media (max-width: 1000px) {
+  .tuto {
+    padding: 2rem 1rem;
+  }
 }
 .tuto ol {
   display: flex;
@@ -143,9 +149,18 @@ header {
   font-size: 1.5rem;
 }
 
+#homepage {
+  background-color: #f6f6f6;
+}
 #homepage .menus {
   background-color: #f6f6f6;
   margin-bottom: 2rem;
+  padding: 20px 7rem;
+}
+@media (max-width: 1000px) {
+  #homepage .menus {
+    padding: 20px 1rem;
+  }
 }
 #homepage .menus .menus__cards {
   display: grid;
@@ -342,10 +357,6 @@ footer .proposer {
     opacity: 1;
   }
 }
-body {
-  background-color: #f6f6f6;
-}
-
 #page-resto header:hover::before {
   transform: translateY(-50%) scale(1.2);
 }
@@ -373,7 +384,13 @@ body {
   object-position: center;
 }
 #page-resto .resto__title {
+  margin-top: -2rem !important;
   text-align: center; /* Centre le texte en mode desktop */
+}
+@media (min-width: 1000px) {
+  #page-resto .resto__title {
+    margin: 0 8rem; /* Ajoute une marge de 8rem à gauche et à droite en mode desktop */
+  }
 }
 @media (max-width: 1000px) {
   #page-resto .resto__title {
@@ -434,13 +451,22 @@ body {
   opacity: 1;
   transform: translateY(-50%) scale(1.1);
 }
+@media (min-width: 1000px) {
+  #page-resto .resto__title h2 {
+    padding: 2rem 8rem; /* Supprime le padding en mode desktop */
+  }
+  #page-resto .resto__title h2:before, #page-resto .resto__title h2::after {
+    right: 8rem !important;
+  }
+}
 #page-resto .resto-main {
+  background-color: #f6f6f6;
   padding: 0 1rem; /* Ajoute un padding de 1rem en mode breakpoint */
 }
 @media (min-width: 1000px) {
   #page-resto .resto-main {
     margin: 0 8rem; /* Ajoute une marge de 8rem à gauche et à droite en mode desktop */
-    padding: 0; /* Supprime le padding en mode desktop */
+    padding: 0 8rem; /* Supprime le padding en mode desktop */
   }
 }
 #page-resto .menus {
@@ -518,13 +544,8 @@ body {
   transition: margin-right 0.5s;
 }
 #page-resto .menus .menus__category .menu-item .menu-item__check i {
-  display: grid;
-  place-items: center;
-  background: white;
-  height: 1rem;
-  width: 1rem;
   border-radius: 1rem;
-  color: #99e2d0;
+  color: white;
 }
 #page-resto .menus .menus__category .menu-item:hover {
   cursor: pointer;
@@ -565,6 +586,69 @@ section.order button {
 section.order button:hover {
   transform: scale(1.02);
   opacity: 0.9;
+}
+
+.container_loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background: white;
+  z-index: 0;
+  visibility: hidden;
+  animation: loader 3s linear;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #8b77f1;
+  border-top-color: #f002c0;
+  border-radius: 50%;
+  animation: spinner 1s infinite linear;
+  position: relative;
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 15px;
+  background: #f002c0;
+  border-radius: 50%;
+}
+
+.loader:after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 15px;
+  background: #f002c0;
+  border-radius: 50%;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loader {
+  0% {
+    z-index: 10;
+    visibility: visible;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

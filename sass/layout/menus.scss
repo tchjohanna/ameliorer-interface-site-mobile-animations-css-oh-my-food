@@ -3,9 +3,14 @@
 @use "../utils/mixins";
 
 #homepage {
+  background-color: colors.$lightergrey;
   .menus {
     background-color: #f6f6f6;
     margin-bottom: 2rem;
+    padding: 20px 7rem;
+    @media (max-width: 1000px) {
+        padding: 20px 1rem;
+    }
 
     .menus__cards {
       display: grid;

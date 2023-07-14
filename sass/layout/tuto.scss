@@ -5,6 +5,11 @@
 .tuto {
   counter-reset: steps;
   margin-bottom: 2rem;
+  padding: 2rem 7rem;
+  background-color: white;
+  @media (max-width: 1000px) {
+      padding: 2rem 1rem;
+  }
   & ol {
     display: flex;
     gap: 2rem;
